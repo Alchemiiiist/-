@@ -1,6 +1,7 @@
 library(dplyr)
 library(Seurat)
 library(ggplot2)
+##### 下载35953_w-1-1数据集的标准输出文件，这是一个恒河猴的基因组，线粒体基因不是mt-或MT-开头，因此，寻找了几个特定的线粒体基因进行质控
 ##### 0.创建Seurat对象 ###########
 # load the bal dataset
 # data.dir Directory containing the matrix.mtx, genes.tsv (or features.tsv) and barcodes.tsv files provided by 10X
