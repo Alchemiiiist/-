@@ -6,7 +6,7 @@ ThiS is just a record
 -   seurat分析cellranger的标准输出
 -   尝试进行RNA velocity 分析
 -   流程代码与结果输出
-
+</br>
 - 20230518 补充了一次20221006初次进行bulk RNA seq的代码与分析流程，主要包括
 -   从fastq文件质控开始至获得表达矩阵的上游分析
 -   DEseq2差异分析
