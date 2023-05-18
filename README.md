@@ -6,3 +6,11 @@ ThiS is just a record
 -   seurat分析cellranger的标准输出
 -   尝试进行RNA velocity 分析
 -   流程代码与结果输出
+
+- 20230518 补充了一次20221006初次进行bulk RNA seq的代码与分析流程，主要包括
+-   从fastq文件质控开始至获得表达矩阵的上游分析
+-   DEseq2差异分析
+-   GO富集分析
+-   代码流程与结果输出
+-   补充 -- GO富集分析可以通过tb-tools可视化工具实现
+-   tb-tools整合了相当多的分析功能，是湿实验人的福音
