@@ -1,0 +1,7 @@
+fastqc
+star
+samtools
+hisat2
+htseq
+salmon
+trimmomatic
