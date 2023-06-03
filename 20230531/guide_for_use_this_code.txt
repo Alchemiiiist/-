@@ -1,0 +1,50 @@
+I. chipseq.sh 
+该脚本是进行chipseq 的标准流程，包括fastqc，cutadapt，Mapping，sort，filter，deduplicate，index，peak calling
+是一份适用范围较广的代码
+
+在下载好相关软件后（见requirements.txt文件），对该代码进行简单修改即可直接适用
+
+可能的需要修改的部分
+
+step0
+- 可以直接将文件存在在本地，建议目录格式为 /home/yourhome/date_or_the_name_of_the_big_project/your_especific_project。
+- 将原始fastq.gz数据文件存放在上述目录的子目录rawdata中。
+- 该目录/home/yourhome/date_or_the_name_of_the_big_project/your_especific_project作为你的工作目录
+- ！！注意检查fastq.gz文件的名称，如果不是标准名称，请自行建立样本名字信息的config文件
+
+step1
+- fastqc 的 -t 参数可根据您的服务器情况酌情修改
+
+step2
+- 参数可酌情修改
+- ！！注意检查-a -A 参数是否和自己使用的接头序列一致
+
+step3
+- 如果是第一跑代码，请执行build index下的代码块
+- ！！注意检查bowtie2的-x参数是否和自己建立的index的路径和前缀一致。
+- sort，filter，deduplicate，index的参数可酌情修改
+
+step4
+- ！！注意检查fastq.gz的input文件名称，可自行构建提出input文件的样本信息的config2文件
+- ！！！注意修改macs2的-c参数，修改为自己的input_filtered_dedup.bam文件
+- ！！！注意修改 -n 参数为自己样本的名字前缀
+- ！！注意检查-g 参数检查自己的样本是否是人的有效基因组
+- 其他参数酌情修改
+
+step5
+- ！！！ 注意修改-b参数中的input文件信息
+- ！！！注意修改自己的图注为自己的样本信息
+
+下游分析
+II. downstream.sh
+step1 motif calling & peak annotation
+- ！！！注意修改prefix变量，该变量与macs2中peak calling里的-n参数保持一致，为自定义的样品名前缀
+- ！！！注意修改bedtools中的fi参数，该参数为本地基因组序列文件的路径
+- ！！！注意修改meme-chip 中的-db参数，该参数为motif的meme注释文件的路径
+- ！得到的peak_annotation.tsv文件可以继续在R中做下游的GO分析等其他分析
+
+step2 TSS共定位分析
+- ！！！ 注意修改computeMatrix的参数，1)计算共定位位点的模式，2)-S参数为需要计算共定位的样本的bw文件，3)-R参数为reference位点信息的bed文件的路径，4)--samplesLabel样本的label名称，5）-o 输出的矩阵名称
+- ！！！ 作热图注意修改输入的矩阵即是computeMatrix的输出矩阵
+
+	

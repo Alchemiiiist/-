@@ -1,0 +1,9 @@
+fastqc
+cutadapt
+bowtie2
+samtools
+picard
+macs2
+deeptools
+bedtools
+meme
