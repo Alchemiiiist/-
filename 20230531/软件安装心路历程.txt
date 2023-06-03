@@ -1,0 +1,42 @@
+在安装meme和homer之前需要安装perl
+
+- 建议先在linux服务器上安装如下模块
+- sudo apt-get install libexpat1-dev
+- sudo apt-get install zlib1g-dev
+- 安装python3
+
+- 建议安装perl时可以前往官网进行源代码编译安装
+- 安装完成后,检查是否有XML::Simple和XML::Parser模块，如果没有，则可以进入perl环境，手动安装该模块
+$ perl -MCPAN -e shell
+cpan> install XML::Simple
+cpan> install XML::Parse
+cpan> quit
+
+- 检查两个模块是否正常工作
+
+- 下载meme源码，手动编译安装
+```bash
+wget https://meme-suite.org/meme/meme-software/5.4.1/meme-5.4.1.tar.gz
+tar zxf meme-5.4.1.tar.gz
+cd meme-5.4.1
+./configure --prefix=$HOME/meme --enable-build-libxml2 --enable-build-libxslt
+make
+make test
+make install
+```
+注意添加环境目录到.bashrc
+
+
+```bash
+cd /home/your_home/your_path/homer
+wget http://homer.ucsd.edu/homer/configureHomer.pl
+perl configureHomer.pl -install
+Homer_HOME=/home/your_home/your_path/homer
+echo PATH="${Homer_HOME}/bin:$PATH"
+chmod +x configureHomer.pl
+./configureHomer.pl -install hg38
+```
+
+
+
+
