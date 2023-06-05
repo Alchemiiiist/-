@@ -20,3 +20,5 @@ ThiS is just a record
 - 20230531 完成了一次ChIP-Seq生信分析流程，主要包括
 - ChIP-Seq的上游分析，fastq文件的质控，过滤，比对
 - 比对文件的排序，过滤，去重，索引
+- 查看了chipseq分析的质量
+- 进行了少许下游分析，call motif 和 TSS 共定位
